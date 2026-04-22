@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廖彦铭 | AI Product Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfaf8;
+            --primary-text: #1a202c;
+            --accent-color: #9a3412;
+            /* 陶土红 */
+            --muted-text: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 100px;
+        }
+
+        .header .badge {
+            font-size: 11px;
+            color: var(--accent-color);
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 4px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 56px;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .header h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            margin: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .header .bio {
+            max-width: 650px;
+            color: var(--muted-text);
+            margin-top: 35px;
+            font-size: 16px;
+        }
+
+        .header .links {
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--muted-text);
+        }
+
+        .header .links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Section Labels */
+        .section-label {
+            font-size: 13px;
+            color: var(--muted-text);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-label b {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            margin-left: 20px;
+        }
+
+        /* 01 核心项目 */
+        .hero-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 80px;
+            box-shadow: 0 10px 40px rgba(154, 52, 18, 0.05);
+        }
+
+        .hero-visual {
+            flex: 1;
+            background: #fdf2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ui-mockup {
+            width: 120px;
+            height: 160px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            padding: 15px;
+        }
+
+        .ui-line {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .hero-body {
+            flex: 1.4;
+            padding: 50px;
+        }
+
+        .hero-body .meta {
+            font-size: 11px;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .hero-body h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 30px;
+            margin: 0 0 20px 0;
+        }
+
+        .hero-body p {
+            font-size: 14px;
+            color: var(--muted-text);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* KPI */
+        .kpi-group {
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .kpi-box b {
+            display: block;
+            font-size: 24px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .kpi-box span {
+            font-size: 11px;
+            color: var(--muted-text);
+        }
+
+        /* 02 更多项目 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .grid-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            transition: 0.3s;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .grid-card h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            margin: 15px 0 10px 0;
+        }
+
+        .grid-card p {
+            font-size: 13.5px;
+            color: var(--muted-text);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* 其他经历 */
+        .other-exp {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 80px;
+        }
+
+        .other-exp h4 {
+            font-family: 'Noto Serif SC', serif;
+            margin: 0 0 15px 0;
+            font-size: 20px;
+        }
+
+        .exp-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* 03 技能 */
+        .skill-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .skill-pill {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-bottom: 60px;
+            color: #999;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+
+            .hero-card,
+            .project-grid,
+            .exp-content {
+                flex-direction: column;
+            }
+
+            .hero-visual {
+                height: 200px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="badge">LIAO YANMING · PRODUCT PORTFOLIO</div>
+            <h1>廖彦铭</h1>
+            <h2>AI × Product</h2>
+            <div class="bio">
+                北大光华硕士 / 台湾清华学子。专注 AIGC 场景落地与多模态交互研究。擅长利用 AI 工具快速验证原型，并结合数据建模与策略背景构建高质量产品方案。
+            </div>
+            <div class="links">
+                <a href="mailto:ming.accordion@gmail.com">Email</a>
+                <a href="https://github.com/Xavier1006-web" target="_blank">GitHub ↗</a>
+                <span>+86 188101037593</span>
+            </div>
+        </div>
+
+        <div class="section-label"><b>01</b> 核心项目</div>
+
+        <div class="hero-card">
+            <div class="hero-visual">
+                <div class="ui-mockup">
+                    <div class="ui-line" style="width: 40%; background: var(--accent-color);"></div>
+                    <div class="ui-line"></div>
+                    <div class="ui-line" style="width: 80%;"></div>
+                    <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="height: 30px; background: #fef2f2; border-radius: 4px;"></div>
+                        <div style="height: 30px; background: #fef2f2; border-radius: 4px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-body">
+                <div class="meta">AI CODING 协同开发 · 2026.04</div>
+                <h3>NextOffer · 智能化求职看板中心</h3>
+                <p>
+                    针对校招季信息爆炸痛点，基于 <strong>Google AI Studio + Antigravity</strong> 全程开发。通过看板布局实现职位储备与进度解耦，并实现了与
+                    <strong>Apple 日历</strong> 的底层协议同步，确保面试时刻的零遗漏交付。
+                </p>
+                <div class="kpi-group">
+                    <div class="kpi-box"><b>Real-time</b><span>Feishu 数据聚合</span></div>
+                    <div class="kpi-box"><b>Apple</b><span>日历一键同步</span></div>
+                    <div class="kpi-box"><b>2x</b><span>决策提效</span></div>
+                </div>
+                <a href="https://xavier1006-web.github.io/NextOffer/" target="_blank"
+                    style="font-size: 14px; color: var(--accent-color); text-decoration: none; font-weight: 700; display: block; margin-top: 30px;">查看项目详情
+                    →</a>
+            </div>
+        </div>
+
+        <div class="section-label"><b>02</b> 更多项目</div>
+        <div class="project-grid">
+            <div class="grid-card">
+                <div style="font-size: 11px; color: var(--accent-color); font-weight: 700; margin-bottom: 12px;">AI 硬件产品
+                    · 2025.12</div>
+                <h4>JoySeeker · 笑容抓拍无人机</h4>
+                <p>
+                    解决大热天团建活动中，用户因疲惫或忙碌无法捕捉到彼此笑容瞬间的痛点。集成 MobileNetV3 识别与 Vosk 语音控制，实现自动捕捉高光瞬间。
+                </p>
+                <div class="kpi-group" style="gap: 30px;">
+                    <div class="kpi-box"><b>87.3%</b><span>笑容召回率</span></div>
+                    <div class="kpi-box"><b>
+                            <0.2s< /b><span>推理延迟</span></div>
+                </div>
+                <a href="https://github.com/Xavier1006-web/JoySeeker-AI-Drone" target="_blank"
+                    style="font-size: 12px; color: var(--accent-color); text-decoration: none; font-weight: 700; display: block; margin-top: 25px;">GitHub
+                    源码 ↗</a>
+            </div>
+
+            <div class="grid-card">
+                <div style="font-size: 11px; color: #4b5563; font-weight: 700; margin-bottom: 12px;">AIGC 产品实习 · 2026.03
+                </div>
+                <h4>百度文库 · AIGC 产品优化</h4>
+                <p>
+                    推动 AI 搜索入口落地。通过“展现-点击-转化”全链路漏斗分析，下钻定位增长断点，优化分发策略，最终实现点击转化提升 20%。
+                </p>
+                <div class="kpi-group" style="gap: 30px;">
+                    <div class="kpi-box"><b>+20%</b><span>转化提升</span></div>
+                    <div class="kpi-box"><b>10+</b><span>场景落地</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-label">其他经历</div>
+        <div class="other-exp">
+            <h4>美团 · KA 攻坚策略与商分建模</h4>
+            <div class="exp-content">
+                <div style="max-width: 550px;">
+                    <p style="font-size: 14px; color: var(--muted-text); margin: 0 0 10px 0;"><strong>KA
+                            策略：</strong>从连锁化率、场景适配度、点位价值多维指标分级品类，精准筛选头部品牌，提供高质量拓店清单。</p>
+                    <p style="font-size: 14px; color: var(--muted-text); margin: 0;">
+                        <strong>商分建模：</strong>基于业务需求搭建自动化看板，运用 Excel 建模完成订单/GTV/点位产出的深度分析与对标。
+                    </p>
+                </div>
+                <div style="display: flex; gap: 35px; margin-top: 10px;">
+                    <div class="kpi-box"><b>1.7</b><span>产出比</span></div>
+                    <div class="kpi-box"><b>60+</b><span>品牌覆盖</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-label"><b>03</b> 技能</div>
+        <div class="skill-container">
+            <div class="skill-pill"><span class="skill-dot"></span> 多模态交互设计</div>
+            <div class="skill-pill"><span class="skill-dot"></span> AIGC 策略与增长</div>
+            <div class="skill-pill"><span class="skill-dot"></span> Python / SQL / R</div>
+            <div class="skill-pill"><span class="skill-dot"></span> 商业决策建模</div>
+        </div>
+
+        <footer>
+            Product Portfolio / 廖彦铭 · 2026<br>
+            Built with Logic & Aesthetics
+        </footer>
+    </div>
+
+</body>
+
+</html>
